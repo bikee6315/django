@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body{
+    background-image:url('http://img15.deviantart.net/10be/i/2016/132/c/4/instagram_gradient_wallpaper_by_jasonzigrino-da28exh.png');
+    background-size:cover;
+    }
+        #wrapper{
+        text-align:center;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+<form method="post" action="/post/">
+    {% csrf_token %}
+    <input type="submit" class="btn-default btn" value="Create Post">
+</form>
+{% for post in posts %}
+<h3>Posted by: {{ post.user.username }}</h3>
+<img src="{{ post.image_url }}">
+    <br>
+<span>{{ post.caption }}</span>
+<div> {{ post.like_count }} likes this </div>
+<div>
+    <form method="POST" action="/like/">
+        {% csrf_token %}
+        <input type="hidden" name="post" value="{{ post.id }}"/>
+        {% if post.has_liked %}
+        <input type="submit" class="btn btn-default" value="Unlike">
+        {% else %}
+        <input type="submit" class="btn btn-default" value="Like">
+        {% endif %}
+    </form>
+</div>
+<div>
+    <form method="POST" action="\comment\">
+        {% csrf_token %}
+        <input type="hidden" name="post" value="{{ post.id }}"/>
+        <input type="text" name="comment_text" id="comment_text" placeholder="Make a comment.." value="{{ comment_text }}">
+        {{ comment_text }}
+        <input type="submit" class="btn-default-btn" value="Comment">
+    </form>
+</div>
+<div>
+    {% for comment in post.comment %}
+    <p><b>{{ comment.user.username }}[{{ comment.created_on }}]:</b>{{ comment.comment_text }}</p>
+    {% endfor %}
+</div>
+{% endfor %}
+</div>
+</body>
+</html>

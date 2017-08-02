@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Lily+Script+One" rel="stylesheet">
+    <title>Instagram</title>
+    <style>
+body{
+    background-color:#f9fafb;
+}
+.wrapper{
+    background: #f9f9f9;
+    width: 395px;
+    height: 606px;
+}
+.login{
+    background: #f9f9f9;
+    width: 395px;
+    height:48px;
+}
+.greet{
+    font-size: 21px;
+    margin: -30px 30px;
+    color: #999;
+    line-height: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+.info{
+    font-size: 17px;
+    color: #999;
+    line-height: 20px;
+    text-align: center;
+    font-weight: 600;
+    margin: 20px 60px;
+}
+.form{
+    margin-top:82px;
+}
+input{
+    height: 34px;
+    width: 281px;
+    border-radius: 11px;
+    padding:7px;
+    border: 3px solid cadetblue;
+}
+.button{
+    width: 296px;
+    margin-top: 10px;
+    color:white;
+    background-color: blue;
+    font-size: 18px;
+    height: initial;
+    border-radius: 0;
+    border: 0;
+}
+.button:hover{
+    cursor:pointer;
+}
+h1{
+    font-family: 'Lily Script One', cursive;
+    font-size: 60px;
+    font-weight: inherit;
+}
+h3{
+    padding: 13px;
+    color:#262626;
+}
+.trigger{
+    text-decoration: none;
+    color: #3897f0;
+    font: inherit;
+    padding-left: 6px;
+}
+</style>
+</head>
+<body>
+<center>
+    <div class="wrapper">
+        <span class="main">
+            <h1>InstaBot</h1>
+            <p class="greet">Sign up to see photos and videos from your friends.</p>
+            <h4>{{ today }}</h4>
+        </span>
+
+        <div>
+            <form method="post"> {% csrf_token %}
+                <div class="form">
+                    <input type="Name" placeholder="Name" name="name">
+                    <br></br>
+                    <input type="Username" placeholder="Username" name="username">
+                    <br></br>
+                    <input type="Email" placeholder="Email" name="email">
+                    <br></br>
+                    <input type="Password" placeholder="Password" name="password">
+                    <br></br>
+                    <input class="button" type="Submit" value="Sign up">
+                    <p class="info">By signing up, you agree to our
+                        Terms & Privacy Policy.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="login">
+            <h3>Have an account?<a class="trigger" href="login/">Log in</a></h3>
+        </div>
+    </footer>
+
+</center>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Lily+Script+One" rel="stylesheet">
+<style>
+body{
+background-color:#f9fafb;
+}
+.wrapper{
+    background: #f9f9f9;
+    width: 395px;
+    height: 328px;
+}
+.login{
+    background: #f9f9f9;
+    width: 395px;
+    height:48px;
+}
+.info{
+    font-size: 17px;
+    color: #999;
+    line-height: 20px;
+    text-align: center;
+    font-weight: 600;
+    margin: 20px 60px;
+}
+input{
+    height: 34px;
+    width: 281px;
+    border-radius: 11px;
+    padding:7px;
+    border: 3px solid cadetblue;
+}
+h1{
+    font-family: 'Lily Script One', cursive;
+    font-size: 60px;
+    font-weight: inherit;
+}
+.button{
+    width: 296px;
+    margin-top: 23px;
+    color:white;
+    background-color: blue;
+    font-size: 18px;
+    height: initial;
+    border-radius: 0;
+    border: 0;
+}
+.button:hover{
+    cursor:pointer;
+}
+h3{
+    padding: 13px;
+    color:#262626;
+}
+.trigger{
+    text-decoration: none;
+    color: #3897f0;
+    font: inherit;
+    padding-left: 6px;
+}
+
+</style>
+
+</head>
+<body>
+<center>
+    <form method="post">
+        {% csrf_token %}
+        <div class="wrapper">
+            <div class="main">
+                <h1>InstaBot!</h1>
+            </div>
+            <div class="form">
+                <input type="username" placeholder="Username"  name="username">
+                 <br></br>
+                <input type="password" placeholder="Password" name="password">
+                <br></br>
+                <input class="button" type="Submit" value="Log in">
+            </div>
+        </div>
+    </form>
+        <footer>
+            <div class="login">
+                <h3>Don't have an account?<a class="trigger" href="/">Sign up</a></h3>
+            </div>
+        </footer>
+
+</center>
+
+
+</body>
+</html>
